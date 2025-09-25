@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.db
+.env
+ECHO est  ativado.
+# Node / Frontend
+maintenance_system/maintenance-frontend/node_modules/
+maintenance_system/maintenance-frontend/.vite/
+maintenance_system/maintenance-frontend/dist/
+maintenance_system/maintenance-frontend/build/
+*.log
+ECHO est  ativado.
+# IDE / SO
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

@@ -1,4 +1,4 @@
-import { Routes, Route, Link, Outlet, Navigate } from 'react-router-dom'; 
+import { Routes, Route, Link, Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import MaintenanceForm from './components/MaintenanceForm';
 import MaintenanceList from './components/MaintenanceList';
@@ -25,7 +25,8 @@ const AppLayout = () => {
                 <Link to="/request">Nova Requisição</Link>
               </Button>
             )}
-            {user?.role === 'maintenance' && (
+            {/* Adicionando link para admin também ver o painel */}
+            {(user?.role === 'maintenance' || user?.role === 'admin') && (
               <Button asChild variant="ghost">
                 <Link to="/manutencao">Painel de Manutenção</Link>
               </Button>
@@ -59,7 +60,8 @@ function App() {
           <Route
             path="/"
             element={
-              user?.role === 'maintenance'
+              // ✅ <-- ALTERAÇÃO AQUI
+              (user?.role === 'maintenance' || user?.role === 'admin')
                 ? <Navigate to="/manutencao" />
                 : <Navigate to="/request" />
             }
